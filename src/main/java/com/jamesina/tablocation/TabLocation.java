@@ -41,6 +41,7 @@ public final class TabLocation extends JavaPlugin implements Listener {
         config.options().copyDefaults(true);
         config.addDefault("Show dimension", true);
         config.addDefault("Show location", true);
+        config.addDefault("Debug", false);
         config.addDefault("Colour for dimension", "§5");
         saveDefaultConfig();
         saveConfig();
@@ -54,13 +55,27 @@ public final class TabLocation extends JavaPlugin implements Listener {
             new Placeholders(this).register();
         }
 
-        log.info("===================================");
-        log.info("Plugin has been enabled!");
-        log.info("You are using §aTabLocation,");
-        log.info("Version §6" + ver);
-        log.info("Java version §6" + javaver);
-        log.info("Developed by §ajamesina");
-        log.info("===================================");
+        if (Bukkit.getVersion().contains("Paper")) {
+            log.info("===================================");
+            log.info("§aTabLocation§l has been enabled!");
+            log.info("You are using version §6" + ver);
+            if (config.getBoolean("Debug")) {
+                log.info("Java version: §6" + javaver);
+                log.info("Server Version: " + Bukkit.getVersion());
+            }
+            log.info("Developed by §ajamesina");
+            log.info("===================================");
+        } else {
+            log.info("===================================");
+            log.info("TabLocation has been enabled!");
+            log.info("You are using version " + ver);
+            if (config.getBoolean("Debug")) {
+                log.info("Java version: " + javaver);
+                log.info("Server Version: " + Bukkit.getVersion());
+            }
+            log.info("Developed by jamesina");
+            log.info("===================================");
+        }
 
         new UpdateChecker(this, 83894).getVersion(version -> {
             if (this.getDescription().getVersion().equalsIgnoreCase(version)) {
