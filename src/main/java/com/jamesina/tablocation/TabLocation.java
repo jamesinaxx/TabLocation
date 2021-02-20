@@ -86,7 +86,10 @@ public final class TabLocation extends JavaPlugin implements Listener {
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event) {
         Player player = event.getPlayer();
-        player.setPlayerListName(player.getDisplayName() + getLoc(player));
+        Thread SetLoc = new Thread(() -> {
+            player.setPlayerListName(player.getDisplayName() + getLoc(player));
+        });
+        SetLoc.start();
     }
 
     public static String getLoc(Player player) {
