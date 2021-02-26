@@ -1,11 +1,3 @@
----
-name: Pull Request
-about: Suggest an idea for this project
-title: "[REQUEST] {Title}"
-assignees: jamesinaxx
-
----
-
 **What did you change?**
 Please be thorough and list every change
 
