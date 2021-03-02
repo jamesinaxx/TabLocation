@@ -24,5 +24,11 @@ pipeline {
       }
     }
 
+    stage('') {
+      steps {
+        archiveArtifacts(artifacts: 'target/TabLocation*.jar', onlyIfSuccessful: true, fingerprint: true)
+      }
+    }
+
   }
 }
