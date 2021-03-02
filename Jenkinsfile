@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('Build TabLocation') {
+    stage('Testing TabLocation') {
       parallel {
-        stage('Build TabLocation') {
+        stage('Test TabLocation') {
           steps {
             bat 'mvn clean verify'
           }
@@ -15,6 +15,12 @@ pipeline {
           }
         }
 
+      }
+    }
+
+    stage('Build TabLocation') {
+      steps {
+        bat 'mvn clean install'
       }
     }
 
