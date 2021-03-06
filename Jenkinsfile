@@ -1,7 +1,7 @@
 pipeline {
   agent any
   
-  tools {maven "Latest Maven" mvn "Latest Maven"}
+  tools {maven "Latest Maven"}
   
   stages {
     stage('Testing TabLocation') {
