@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  
+  tools {maven "Latest Maven" mvn "Latest Maven"}
+  
   stages {
     stage('Testing TabLocation') {
       parallel {
