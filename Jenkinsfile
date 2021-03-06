@@ -5,13 +5,15 @@ pipeline {
       parallel {
         stage('Test TabLocation') {
           steps {
-            bat 'mvn clean verify'
+            sh '''#!/bin/bash
+mvn clean verify'''
           }
         }
 
         stage('Check Java Version') {
           steps {
-            bat 'java --version'
+            sh '''#!/bin/bash
+java --version'''
           }
         }
 
@@ -20,7 +22,8 @@ pipeline {
 
     stage('Build TabLocation') {
       steps {
-        bat 'mvn clean install'
+        sh '''#!/bin/bash
+mvn clean install'''
       }
     }
 
